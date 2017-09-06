@@ -1,8 +1,20 @@
+/* global document */
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { ApolloClient } from 'react-apollo';
+import createHistory from 'history/createBrowserHistory';
 import registerServiceWorker from './registerServiceWorker';
+import configureStore from './store/configureStore';
+import Root from './containers/Root';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const history = createHistory();
+const client = new ApolloClient();
+const store = configureStore(history, client);
+
+ReactDOM.render(
+  <Root store={store} history={history} client={client} />,
+  document.getElementById('root'),
+);
+
 registerServiceWorker();
