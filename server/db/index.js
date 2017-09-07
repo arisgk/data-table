@@ -1,5 +1,6 @@
 /*  Mongoose connection module. */
 const mongoose = require('mongoose');
+const logger = require('../libs/logger');
 mongoose.Promise = require('bluebird');
 
 module.exports = () => {
@@ -8,13 +9,13 @@ module.exports = () => {
 
   // Check for errors on connecting to Mongo DB
   mongoose.connection.on('error', (err) => {
-    console.log(`Error! DB Connection failed. Error: ${err}`);
+    logger.info(`Error! DB Connection failed. Error: ${err}`);
     return err;
   });
 
   // Connection opened successfully
   mongoose.connection.once('open', () => {
-    console.log('Connection to MongoDB established');
+    logger.info('Connection to MongoDB established');
   });
 
   return mongoose.connection;
