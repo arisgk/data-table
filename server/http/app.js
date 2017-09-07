@@ -7,12 +7,12 @@ const errorRoute = require('./routes/error');
 
 const app = express();
 
-module.exports = (services) => {
+module.exports = (resolvers) => {
   app.use(bodyParser.json());
   app.use(express.static(path.join(__dirname, 'build')));
 
-  const graphql = graphqlRoute.create(services);
-  const graphiql = graphiqlRoute.create(services);
+  const graphql = graphqlRoute.create(resolvers);
+  const graphiql = graphiqlRoute.create(resolvers);
 
   app.use('/graphql', graphql);
   app.use('/graphiql', graphiql);
