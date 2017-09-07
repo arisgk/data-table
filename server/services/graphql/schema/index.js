@@ -1,8 +1,8 @@
-const { makeExecutableSchema } = require('graphql-tools');
+const { makeExecutableSchema, addMockFunctionsToSchema } = require('graphql-tools');
 
 const typeDefs = `
 type User {
-  id: String
+  id: ID!
   firstName: String
   lastName: String
   age: Int
@@ -14,5 +14,7 @@ type Query {
 `;
 
 const schema = makeExecutableSchema({ typeDefs });
+
+addMockFunctionsToSchema({ schema });
 
 module.exports = schema;

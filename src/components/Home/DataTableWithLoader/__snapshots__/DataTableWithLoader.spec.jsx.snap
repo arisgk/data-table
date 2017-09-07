@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataTable renders correctly 1`] = `
+exports[`DataTableWithLoader renders correctly 1`] = `
 <Table
   allRowsSelected={false}
   fixedFooter={true}
@@ -44,35 +44,6 @@ exports[`DataTable renders correctly 1`] = `
     preScanRows={true}
     selectable={true}
     style={Object {}}
-  >
-    <TableRow
-      displayBorder={true}
-      hoverable={false}
-      hovered={false}
-      selectable={true}
-      striped={false}
-    >
-      <TableRowColumn
-        hoverable={false}
-      >
-        1
-      </TableRowColumn>
-      <TableRowColumn
-        hoverable={false}
-      >
-        John
-      </TableRowColumn>
-      <TableRowColumn
-        hoverable={false}
-      >
-        Smith
-      </TableRowColumn>
-      <TableRowColumn
-        hoverable={false}
-      >
-        36
-      </TableRowColumn>
-    </TableRow>
-  </TableBody>
+  />
 </Table>
 `;

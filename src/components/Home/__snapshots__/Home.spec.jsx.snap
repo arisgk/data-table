@@ -15,6 +15,15 @@ exports[`Home renders correctly 1`] = `
     title="Data Table"
     zDepth={1}
   />
-  <DataTable />
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flex": "auto",
+      }
+    }
+  >
+    <Apollo(DataTableWithLoader) />
+  </div>
 </div>
 `;

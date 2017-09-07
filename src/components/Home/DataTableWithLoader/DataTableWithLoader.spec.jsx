@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import DataTable from './DataTable';
 
-describe('DataTable', () => {
+describe('DataTableWithLoader', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <DataTable />,

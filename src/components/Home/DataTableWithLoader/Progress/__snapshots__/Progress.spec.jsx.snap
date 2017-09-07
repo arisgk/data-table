@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableWithLoader Progress renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "flex": "auto",
+      "justifyContent": "center",
+    }
+  }
+>
+  <CircularProgress
+    max={100}
+    min={0}
+    mode="indeterminate"
+    size={30}
+    thickness={3}
+    value={0}
+  />
+</div>
+`;

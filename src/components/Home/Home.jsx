@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import DataTable from './DataTable';
+import DataTableContainer from '../../containers/Home/DataTableContainer';
 
 const styles = {
   container: {
@@ -8,12 +8,18 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
+  table: {
+    flex: 'auto',
+    display: 'flex',
+  },
 };
 
 const Home = () => (
   <div style={styles.container}>
     <AppBar title="Data Table" />
-    <DataTable />
+    <div style={styles.table}>
+      <DataTableContainer />
+    </div>
   </div>
 );
 
