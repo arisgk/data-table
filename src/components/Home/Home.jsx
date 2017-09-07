@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import DataTable from './DataTable';
 
 const styles = {
   container: {
@@ -11,8 +12,8 @@ const styles = {
 
 const Home = () => (
   <div style={styles.container}>
-    <AppBar title="Title" />
-    <div>Hello World</div>
+    <AppBar title="Data Table" />
+    <DataTable />
   </div>
 );
 

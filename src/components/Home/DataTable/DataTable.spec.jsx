@@ -2,12 +2,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Home from './Home';
+import DataTable from './DataTable';
 
-describe('Home', () => {
+describe('DataTable', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <Home />,
+      <DataTable />,
     );
 
     expect(toJson(wrapper)).toMatchSnapshot();
