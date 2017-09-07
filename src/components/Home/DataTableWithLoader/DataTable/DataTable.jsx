@@ -24,7 +24,7 @@ const DataTable = ({ users }) => (
       {
         users
           ? users.map(user => (
-            <TableRow>
+            <TableRow key={user.id}>
               <TableRowColumn>{user.id}</TableRowColumn>
               <TableRowColumn>{user.firstName}</TableRowColumn>
               <TableRowColumn>{user.lastName}</TableRowColumn>

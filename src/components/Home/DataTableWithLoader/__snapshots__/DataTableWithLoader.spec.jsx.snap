@@ -1,49 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataTableWithLoader renders correctly 1`] = `
-<Table
-  allRowsSelected={false}
-  fixedFooter={true}
-  fixedHeader={true}
-  height="inherit"
-  multiSelectable={false}
-  selectable={true}
->
-  <TableHeader
-    adjustForCheckbox={true}
-    displaySelectAll={true}
-    enableSelectAll={true}
-    selectAllSelected={false}
-  >
-    <TableRow
-      displayBorder={true}
-      hoverable={false}
-      hovered={false}
-      selectable={true}
-      striped={false}
-    >
-      <TableHeaderColumn>
-        ID
-      </TableHeaderColumn>
-      <TableHeaderColumn>
-        First Name
-      </TableHeaderColumn>
-      <TableHeaderColumn>
-        Last Name
-      </TableHeaderColumn>
-      <TableHeaderColumn>
-        Age
-      </TableHeaderColumn>
-    </TableRow>
-  </TableHeader>
-  <TableBody
-    allRowsSelected={false}
-    deselectOnClickaway={true}
-    displayRowCheckbox={true}
-    multiSelectable={false}
-    preScanRows={true}
-    selectable={true}
-    style={Object {}}
-  />
-</Table>
+<DataTable
+  users={Array []}
+/>
+`;
+
+exports[`DataTableWithLoader renders correctly 2`] = `<Progress />`;
+
+exports[`DataTableWithLoader renders correctly 3`] = `
+<DataTable
+  users={
+    Array [
+      Object {
+        "age": 32,
+        "firstName": "Lebron",
+        "id": "1234abcd",
+        "lastName": "James",
+      },
+      Object {
+        "age": 29,
+        "firstName": "Steph",
+        "id": "2345bcde",
+        "lastName": "Curry",
+      },
+    ]
+  }
+/>
 `;
