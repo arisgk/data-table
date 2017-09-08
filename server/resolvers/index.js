@@ -1,23 +1,9 @@
 require('../db')();
-
-const users = [
-  {
-    id: '1234abcd',
-    firstName: 'Lebron',
-    lastName: 'James',
-    age: 32,
-  },
-  {
-    id: '2345bcde',
-    firstName: 'Steph',
-    lastName: 'Curry',
-    age: 29,
-  },
-];
+const User = require('../models/user');
 
 const resolvers = {
   Query: {
-    users: () => users,
+    users: () => User.find({}).then(users => users),
   },
 };
 
