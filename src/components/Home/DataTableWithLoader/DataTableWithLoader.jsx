@@ -4,6 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DataTable from './DataTable';
 import Progress from './Progress';
+import UserDialog from './UserDialog';
 
 const styles = {
   fab: {
@@ -13,7 +14,9 @@ const styles = {
   },
 };
 
-const DataTableWithLoader = ({ data: { loading, users } }) => {
+const DataTableWithLoader = ({
+  adding, onStartAdding, onCancelUserDialog, data: { loading, users },
+}) => {
   if (loading) {
     return (
       <Progress />
@@ -23,9 +26,10 @@ const DataTableWithLoader = ({ data: { loading, users } }) => {
   return (
     <div>
       <DataTable users={users} />
-      <FloatingActionButton style={styles.fab}>
+      <FloatingActionButton style={styles.fab} onClick={onStartAdding}>
         <ContentAdd />
       </FloatingActionButton>
+      <UserDialog adding={adding} onCancel={onCancelUserDialog} />
     </div>
   );
 };
@@ -36,6 +40,9 @@ DataTableWithLoader.propTypes = {
     error: PropTypes.object,
     users: PropTypes.array,
   }),
+  onStartAdding: PropTypes.func,
+  onCancelUserDialog: PropTypes.func,
+  adding: PropTypes.bool,
 };
 
 DataTableWithLoader.defaultProps = {
@@ -44,6 +51,9 @@ DataTableWithLoader.defaultProps = {
     error: null,
     users: [],
   },
+  onStartAdding: () => {},
+  onCancelUserDialog: () => {},
+  adding: false,
 };
 
 export default DataTableWithLoader;

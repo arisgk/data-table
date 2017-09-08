@@ -8,6 +8,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.START_ADDING:
       return { ...state, adding: true };
+    case types.CANCEL_USER_DIALOG:
+      return { ...state, adding: false };
     default:
       return state;
   }

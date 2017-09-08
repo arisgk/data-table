@@ -1,30 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataTableWithLoader renders correctly 1`] = `
-<DataTable
-  users={Array []}
-/>
+<div>
+  <DataTable
+    users={Array []}
+  />
+  <FloatingActionButton
+    disabled={false}
+    mini={false}
+    onClick={[Function]}
+    secondary={false}
+    style={
+      Object {
+        "bottom": 20,
+        "position": "fixed",
+        "right": 20,
+      }
+    }
+    zDepth={2}
+  >
+    <ContentAdd />
+  </FloatingActionButton>
+  <UserDialog
+    adding={false}
+    onCancel={[Function]}
+  />
+</div>
 `;
 
 exports[`DataTableWithLoader renders correctly 2`] = `<Progress />`;
 
 exports[`DataTableWithLoader renders correctly 3`] = `
-<DataTable
-  users={
-    Array [
+<div>
+  <DataTable
+    users={
+      Array [
+        Object {
+          "age": 32,
+          "firstName": "Lebron",
+          "id": "1234abcd",
+          "lastName": "James",
+        },
+        Object {
+          "age": 29,
+          "firstName": "Steph",
+          "id": "2345bcde",
+          "lastName": "Curry",
+        },
+      ]
+    }
+  />
+  <FloatingActionButton
+    disabled={false}
+    mini={false}
+    onClick={[Function]}
+    secondary={false}
+    style={
       Object {
-        "age": 32,
-        "firstName": "Lebron",
-        "id": "1234abcd",
-        "lastName": "James",
-      },
-      Object {
-        "age": 29,
-        "firstName": "Steph",
-        "id": "2345bcde",
-        "lastName": "Curry",
-      },
-    ]
-  }
-/>
+        "bottom": 20,
+        "position": "fixed",
+        "right": 20,
+      }
+    }
+    zDepth={2}
+  >
+    <ContentAdd />
+  </FloatingActionButton>
+  <UserDialog
+    adding={false}
+    onCancel={[Function]}
+  />
+</div>
 `;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
@@ -21,10 +22,13 @@ class UserDialog extends Component {
   }
 
   handleClose() {
-
+    const { onCancel } = this.props;
+    onCancel();
   }
 
   render() {
+    const { adding } = this.props;
+
     const actions = [
       <FlatButton
         label="Cancel"
@@ -32,7 +36,7 @@ class UserDialog extends Component {
         onClick={this.handleClose}
       />,
       <FlatButton
-        label="Submit"
+        label="Create"
         primary
         onClick={this.handleAdd}
       />,
@@ -49,3 +53,15 @@ class UserDialog extends Component {
     );
   }
 }
+
+UserDialog.propTypes = {
+  adding: PropTypes.bool,
+  onCancel: PropTypes.func,
+};
+
+UserDialog.defaultProps = {
+  adding: false,
+  onCancel: () => {},
+};
+
+export default UserDialog;

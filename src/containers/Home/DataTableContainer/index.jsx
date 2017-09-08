@@ -1,6 +1,6 @@
 import { gql, graphql } from 'react-apollo';
 import { connect } from 'react-redux';
-import { startAdding } from '../../../actions/home';
+import { startAdding, cancelUserDialog } from '../../../actions/home';
 import DataTableWithLoader from '../../../components/Home/DataTableWithLoader';
 
 const query = gql`
@@ -27,6 +27,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onStartAdding: () => dispatch(startAdding()),
+  onCancelUserDialog: () => dispatch(cancelUserDialog()),
 });
 
 const DataTableWithDataAndState = connect(

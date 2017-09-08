@@ -28,5 +28,23 @@ describe('Home', () => {
 
       expect(reducer(state, action)).toEqual(expected);
     });
+
+    it('Handles cancel user dialog action', () => {
+      const state = {
+        adding: true,
+      };
+
+      deepFreeze(state);
+
+      const action = {
+        type: types.CANCEL_USER_DIALOG,
+      };
+
+      const expected = {
+        adding: false,
+      };
+
+      expect(reducer(state, action)).toEqual(expected);
+    });
   });
 });
