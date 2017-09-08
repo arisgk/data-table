@@ -9,7 +9,7 @@ const app = express();
 
 module.exports = (resolvers) => {
   app.use(bodyParser.json());
-  app.use(express.static(path.join(__dirname, 'build')));
+  app.use(express.static(path.resolve('build')));
 
   const graphql = graphqlRoute.create(resolvers);
   const graphiql = graphiqlRoute.create(resolvers);
