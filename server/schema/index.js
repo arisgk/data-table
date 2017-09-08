@@ -12,6 +12,10 @@ function create(resolvers) {
   type Query {
     users: [User]
   }
+
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, age: Int): User
+  }
   `;
 
   return makeExecutableSchema({ typeDefs, resolvers });

@@ -15,7 +15,7 @@ const styles = {
 };
 
 const DataTableWithLoader = ({
-  adding, onStartAdding, onCancelUserDialog, data: { loading, users },
+  adding, onStartAdding, onCancelUserDialog, data: { loading, users }, mutate, listQuery,
 }) => {
   if (loading) {
     return (
@@ -29,7 +29,7 @@ const DataTableWithLoader = ({
       <FloatingActionButton style={styles.fab} onClick={onStartAdding}>
         <ContentAdd />
       </FloatingActionButton>
-      <UserDialog adding={adding} onCancel={onCancelUserDialog} />
+      <UserDialog adding={adding} onCancel={onCancelUserDialog} mutate={mutate} listQuery={listQuery} />
     </div>
   );
 };
@@ -42,6 +42,7 @@ DataTableWithLoader.propTypes = {
   }),
   onStartAdding: PropTypes.func,
   onCancelUserDialog: PropTypes.func,
+  mutate: PropTypes.func,
   adding: PropTypes.bool,
 };
 
@@ -53,6 +54,7 @@ DataTableWithLoader.defaultProps = {
   },
   onStartAdding: () => {},
   onCancelUserDialog: () => {},
+  mutate: () => {},
   adding: false,
 };
 

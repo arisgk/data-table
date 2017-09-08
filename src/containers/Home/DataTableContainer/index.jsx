@@ -1,9 +1,9 @@
-import { gql, graphql } from 'react-apollo';
+import { gql, graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
 import { startAdding, cancelUserDialog } from '../../../actions/home';
 import DataTableWithLoader from '../../../components/Home/DataTableWithLoader';
 
-const query = gql`
+const listQuery = gql`
   query UserListQuery {
     users {
       id
@@ -14,15 +14,27 @@ const query = gql`
   }
 `;
 
-const DataTableWithData = graphql(query, {
+const createMutation = gql`
+  mutation addUser($firstName: String!, $lastName: String!, $age: Int) {
+    addUser(firstName: $firstName, lastName: $lastName, age: $age) {
+      id
+      firstName
+      lastName
+      age
+    }
+  }
+`;
+
+const options = {
   props: ({ ownProps, ...dataProps }) => ({
     ...ownProps,
     ...dataProps,
   }),
-})(DataTableWithLoader);
+};
 
 const mapStateToProps = state => ({
   adding: state.home.ui.adding,
+  listQuery,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,9 +42,10 @@ const mapDispatchToProps = dispatch => ({
   onCancelUserDialog: () => dispatch(cancelUserDialog()),
 });
 
-const DataTableWithDataAndState = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(DataTableWithData);
+const DataTableWithDataAndState = compose(
+  graphql(listQuery, options),
+  graphql(createMutation, options),
+  connect(mapStateToProps, mapDispatchToProps),
+)(DataTableWithLoader);
 
 export default DataTableWithDataAndState;

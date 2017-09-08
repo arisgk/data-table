@@ -12,7 +12,7 @@ module.exports = (resolvers) => {
   app.use(express.static(path.resolve('build')));
 
   const graphql = graphqlRoute.create(resolvers);
-  const graphiql = graphiqlRoute.create(resolvers);
+  const graphiql = graphiqlRoute.create();
 
   app.use('/graphql', graphql);
   app.use('/graphiql', graphiql);

@@ -21,7 +21,13 @@ class UserDialog extends Component {
   }
 
   handleAdd() {
+    const { mutate, listQuery } = this.props;
+    mutate({
+      variables: this.state,
+      refetchQueries: [{ query: listQuery }],
+    });
 
+    this.handleClose();
   }
 
   handleClose() {
