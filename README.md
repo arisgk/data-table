@@ -1,7 +1,7 @@
 # React Data Table
 Sample project presenting tabular data using ReactJS, Node.js, GraphQL and MongoDB. This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Check out a deployed version of the app using this [link](https://graphql-data-table.herokuapp.com/).
+Check out a [deployed version of the app](https://graphql-data-table.herokuapp.com/).
 
 ### Front-end
 The front-end app is built using [React](https://facebook.github.io/react/), [Redux](http://redux.js.org/) and [Apollo](http://dev.apollodata.com/).
@@ -13,7 +13,7 @@ The back-end app is built using [Node.js](https://nodejs.org/), [Express](https:
 [MongoDB](https://www.mongodb.com/) is used as a data store.
 
 ## Development
-Create a `.env` file in project root to register the following required environment variables:
+Create an `.env` file in project root to register the following required environment variables:
 * `MONGODB_URI` - MongoDB connection URI
 
 ### Server
