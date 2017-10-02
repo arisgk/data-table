@@ -1,10 +1,10 @@
 /* global describe, it, expect */
 import deepFreeze from 'deep-freeze';
-import * as types from '../../../actions/home/types';
-import reducer from './ui';
+import * as types from '../../../../actions/home/types';
+import reducer from './progress';
 
 describe('Home', () => {
-  describe('UI Reducer', () => {
+  describe('Progress UI Reducer', () => {
     it('Returns the initial state', () => {
       expect(reducer(undefined, {})).toEqual({
         adding: false,

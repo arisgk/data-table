@@ -33,8 +33,9 @@ const options = {
 };
 
 const mapStateToProps = state => ({
-  adding: state.home.ui.adding,
+  adding: state.home.ui.progress.adding,
   listQuery,
+  selection: state.home.ui.selection,
 });
 
 const mapDispatchToProps = dispatch => ({

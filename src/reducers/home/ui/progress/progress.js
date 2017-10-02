@@ -1,4 +1,4 @@
-import * as types from '../../../actions/home/types';
+import * as types from '../../../../actions/home/types';
 
 const initialState = {
   adding: false,

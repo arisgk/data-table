@@ -1,3 +1,10 @@
-import ui from './ui';
+import { combineReducers } from 'redux';
+import progress from './progress';
+import selection from './selection';
 
-export default ui;
+const reducer = combineReducers({
+  progress,
+  selection,
+});
+
+export default reducer;
