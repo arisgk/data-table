@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DataTable from './DataTable';
+import TableTitle from './TableTitle';
 import Progress from './Progress';
 import UserDialog from './UserDialog';
+import * as schemas from '../../../schemas/propTypes';
 
 const styles = {
   fab: {
@@ -15,8 +17,16 @@ const styles = {
 };
 
 const DataTableWithLoader = ({
-  adding, onStartAdding, onCancelUserDialog, data: { loading, users }, mutate, listQuery,
+  adding,
+  onStartAdding,
+  onCancelUserDialog,
+  data: { loading, users },
+  mutate,
+  listQuery,
+  selection,
+  onStartDeleting,
 }) => {
+  console.log(listQuery);
   if (loading) {
     return (
       <Progress />
@@ -25,6 +35,10 @@ const DataTableWithLoader = ({
 
   return (
     <div>
+      <TableTitle
+        selection={selection}
+        onStartDeleting={onStartDeleting}
+      />
       <DataTable users={users} />
       <FloatingActionButton style={styles.fab} onClick={onStartAdding}>
         <ContentAdd />
@@ -44,6 +58,9 @@ DataTableWithLoader.propTypes = {
   onCancelUserDialog: PropTypes.func,
   mutate: PropTypes.func,
   adding: PropTypes.bool,
+  listQuery: PropTypes.object,
+  selection: schemas.selection,
+  onStartDeleting: PropTypes.func,
 };
 
 DataTableWithLoader.defaultProps = {
@@ -56,6 +73,9 @@ DataTableWithLoader.defaultProps = {
   onCancelUserDialog: () => {},
   mutate: () => {},
   adding: false,
+  listQuery: {},
+  selection: {},
+  onStartDeleting: () => {},
 };
 
 export default DataTableWithLoader;

@@ -6,3 +6,7 @@ export const user = PropTypes.shape({
   lastName: PropTypes.string,
   age: PropTypes.number,
 });
+
+export const selection = PropTypes.shape({
+  selected: PropTypes.arrayOf(PropTypes.string),
+});

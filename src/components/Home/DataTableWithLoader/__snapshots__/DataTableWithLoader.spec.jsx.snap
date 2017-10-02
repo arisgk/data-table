@@ -2,6 +2,10 @@
 
 exports[`DataTableWithLoader renders correctly 1`] = `
 <div>
+  <TableTitle
+    onStartDeleting={[Function]}
+    selection={Object {}}
+  />
   <DataTable
     users={Array []}
   />
@@ -23,6 +27,7 @@ exports[`DataTableWithLoader renders correctly 1`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
+    listQuery={Object {}}
     mutate={[Function]}
     onCancel={[Function]}
   />
@@ -33,6 +38,10 @@ exports[`DataTableWithLoader renders correctly 2`] = `<Progress />`;
 
 exports[`DataTableWithLoader renders correctly 3`] = `
 <div>
+  <TableTitle
+    onStartDeleting={[Function]}
+    selection={Object {}}
+  />
   <DataTable
     users={
       Array [
@@ -69,6 +78,7 @@ exports[`DataTableWithLoader renders correctly 3`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
+    listQuery={Object {}}
     mutate={[Function]}
     onCancel={[Function]}
   />

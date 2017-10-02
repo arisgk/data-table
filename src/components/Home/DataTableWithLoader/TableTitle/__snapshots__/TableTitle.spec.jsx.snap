@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableWithLoader renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 54,
+      "minHeight": 54,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.54)",
+        "fontSize": "160%",
+        "fontWeight": 100,
+        "marginBottom": 0,
+        "marginLeft": 24,
+        "marginTop": 0,
+      }
+    }
+  >
+    Basketball Players
+  </h2>
+  <div
+    style={
+      Object {
+        "marginLeft": "auto",
+        "marginRight": 24,
+      }
+    }
+  >
+    <IconButton
+      disableTouchRipple={false}
+      disabled={true}
+      iconStyle={
+        Object {
+          "opacity": "0.54",
+        }
+      }
+      onTouchTap={[Function]}
+      tooltipPosition="bottom-center"
+      touch={false}
+    >
+      <i
+        className="material-icons"
+        disabled={true}
+      >
+        delete
+      </i>
+    </IconButton>
+  </div>
+</div>
+`;
+
+exports[`DataTableWithLoader renders correctly 2`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 54,
+      "minHeight": 54,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.54)",
+        "fontSize": "160%",
+        "fontWeight": 100,
+        "marginBottom": 0,
+        "marginLeft": 24,
+        "marginTop": 0,
+      }
+    }
+  >
+    Basketball Players
+  </h2>
+  <div
+    style={
+      Object {
+        "marginLeft": "auto",
+        "marginRight": 24,
+      }
+    }
+  >
+    <IconButton
+      disableTouchRipple={false}
+      disabled={false}
+      iconStyle={
+        Object {
+          "opacity": "0.54",
+        }
+      }
+      onTouchTap={[Function]}
+      tooltipPosition="bottom-center"
+      touch={false}
+    >
+      <i
+        className="material-icons"
+        disabled={false}
+      >
+        delete
+      </i>
+    </IconButton>
+  </div>
+</div>
+`;
+
+exports[`DataTableWithLoader renders correctly 3`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 54,
+      "minHeight": 54,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.54)",
+        "fontSize": "160%",
+        "fontWeight": 100,
+        "marginBottom": 0,
+        "marginLeft": 24,
+        "marginTop": 0,
+      }
+    }
+  >
+    Basketball Players
+  </h2>
+  <div
+    style={
+      Object {
+        "marginLeft": "auto",
+        "marginRight": 24,
+      }
+    }
+  >
+    <IconButton
+      disableTouchRipple={false}
+      disabled={false}
+      iconStyle={
+        Object {
+          "opacity": "0.54",
+        }
+      }
+      onTouchTap={[Function]}
+      tooltipPosition="bottom-center"
+      touch={false}
+    >
+      <i
+        className="material-icons"
+        disabled={false}
+      >
+        delete
+      </i>
+    </IconButton>
+  </div>
+</div>
+`;
+
+exports[`DataTableWithLoader renders correctly 4`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 54,
+      "minHeight": 54,
+    }
+  }
+>
+  <h2
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.54)",
+        "fontSize": "160%",
+        "fontWeight": 100,
+        "marginBottom": 0,
+        "marginLeft": 24,
+        "marginTop": 0,
+      }
+    }
+  >
+    Basketball Players
+  </h2>
+  <div
+    style={
+      Object {
+        "marginLeft": "auto",
+        "marginRight": 24,
+      }
+    }
+  >
+    <IconButton
+      disableTouchRipple={false}
+      disabled={true}
+      iconStyle={
+        Object {
+          "opacity": "0.54",
+        }
+      }
+      onTouchTap={[Function]}
+      tooltipPosition="bottom-center"
+      touch={false}
+    >
+      <i
+        className="material-icons"
+        disabled={true}
+      >
+        delete
+      </i>
+    </IconButton>
+  </div>
+</div>
+`;
