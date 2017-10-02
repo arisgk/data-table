@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const mongodb = require('../databases/mongodb/connector');
+const { mongodb } = require('../databases/');
 const graphqlRoute = require('./routes/graphql');
 const graphiqlRoute = require('./routes/graphiql');
 const errorRoute = require('./routes/error');
 
 const app = express();
-mongodb.connect();
+mongodb.connector.connect();
 
 module.exports = (resolvers) => {
   app.use(bodyParser.json());
