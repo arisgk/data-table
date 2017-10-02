@@ -23,6 +23,7 @@ exports[`DataTableWithLoader renders correctly 1`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
+    mutate={[Function]}
     onCancel={[Function]}
   />
 </div>
@@ -68,6 +69,7 @@ exports[`DataTableWithLoader renders correctly 3`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
+    mutate={[Function]}
     onCancel={[Function]}
   />
 </div>
