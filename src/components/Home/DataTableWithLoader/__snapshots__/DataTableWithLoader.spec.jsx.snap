@@ -7,6 +7,8 @@ exports[`DataTableWithLoader renders correctly 1`] = `
     selection={Object {}}
   />
   <DataTable
+    onTableRowSelection={[Function]}
+    selection={Object {}}
     users={Array []}
   />
   <FloatingActionButton
@@ -43,6 +45,8 @@ exports[`DataTableWithLoader renders correctly 3`] = `
     selection={Object {}}
   />
   <DataTable
+    onTableRowSelection={[Function]}
+    selection={Object {}}
     users={
       Array [
         Object {

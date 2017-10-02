@@ -25,8 +25,8 @@ const DataTableWithLoader = ({
   listQuery,
   selection,
   onStartDeleting,
+  onTableRowSelection,
 }) => {
-  console.log(listQuery);
   if (loading) {
     return (
       <Progress />
@@ -39,7 +39,11 @@ const DataTableWithLoader = ({
         selection={selection}
         onStartDeleting={onStartDeleting}
       />
-      <DataTable users={users} />
+      <DataTable
+        users={users}
+        selection={selection}
+        onTableRowSelection={onTableRowSelection}
+      />
       <FloatingActionButton style={styles.fab} onClick={onStartAdding}>
         <ContentAdd />
       </FloatingActionButton>
@@ -61,6 +65,7 @@ DataTableWithLoader.propTypes = {
   listQuery: PropTypes.object,
   selection: schemas.selection,
   onStartDeleting: PropTypes.func,
+  onTableRowSelection: PropTypes.func,
 };
 
 DataTableWithLoader.defaultProps = {
@@ -76,6 +81,7 @@ DataTableWithLoader.defaultProps = {
   listQuery: {},
   selection: {},
   onStartDeleting: () => {},
+  onTableRowSelection: () => {},
 };
 
 export default DataTableWithLoader;

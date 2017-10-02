@@ -1,6 +1,6 @@
 import { gql, graphql, compose } from 'react-apollo';
 import { connect } from 'react-redux';
-import { startAdding, cancelUserDialog } from '../../../actions/home';
+import { startAdding, cancelUserDialog, select, clearSelection } from '../../../actions/home';
 import DataTableWithLoader from '../../../components/Home/DataTableWithLoader';
 
 const listQuery = gql`
@@ -40,6 +40,19 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onStartAdding: () => dispatch(startAdding()),
   onCancelUserDialog: () => dispatch(cancelUserDialog()),
+  onTableRowSelection: (rows, entities) => {
+    if (rows && rows.length > 0 && entities) {
+      if (rows === 'all') {
+        dispatch(select(entities.map(entity => entity.id)));
+      } else if (rows === 'none') {
+        dispatch(clearSelection());
+      } else {
+        dispatch(select(rows.map(row => entities[row].id)));
+      }
+    } else {
+      dispatch(clearSelection());
+    }
+  },
 });
 
 const DataTableWithDataAndState = compose(

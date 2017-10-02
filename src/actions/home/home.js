@@ -7,3 +7,12 @@ export const startAdding = () => ({
 export const cancelUserDialog = () => ({
   type: types.CANCEL_USER_DIALOG,
 });
+
+export const select = ids => ({
+  type: types.SELECT_USERS,
+  ids,
+});
+
+export const clearSelection = () => ({
+  type: types.CLEAR_USER_SELECTION,
+});

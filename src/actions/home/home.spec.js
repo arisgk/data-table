@@ -19,5 +19,24 @@ describe('Actions', () => {
 
       expect(actions.cancelUserDialog()).toEqual(expected);
     });
+
+    it('Creates an action to select users', () => {
+      const ids = ['1234abcd', '5678efgh'];
+
+      const expected = {
+        type: types.SELECT_USERS,
+        ids,
+      };
+
+      expect(actions.select(ids)).toEqual(expected);
+    });
+
+    it('Creates an action to clear user selection', () => {
+      const expected = {
+        type: types.CLEAR_USER_SELECTION,
+      };
+
+      expect(actions.clearSelection()).toEqual(expected);
+    });
   });
 });

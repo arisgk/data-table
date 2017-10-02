@@ -6,7 +6,8 @@ exports[`DataTable renders correctly 1`] = `
   fixedFooter={true}
   fixedHeader={true}
   height="inherit"
-  multiSelectable={false}
+  multiSelectable={true}
+  onRowSelection={[Function]}
   selectable={true}
 >
   <TableHeader
@@ -38,7 +39,7 @@ exports[`DataTable renders correctly 1`] = `
   </TableHeader>
   <TableBody
     allRowsSelected={false}
-    deselectOnClickaway={true}
+    deselectOnClickaway={false}
     displayRowCheckbox={true}
     multiSelectable={false}
     preScanRows={true}
@@ -50,6 +51,7 @@ exports[`DataTable renders correctly 1`] = `
       hoverable={false}
       hovered={false}
       selectable={true}
+      selected={false}
       striped={false}
     >
       <TableRowColumn
@@ -78,6 +80,7 @@ exports[`DataTable renders correctly 1`] = `
       hoverable={false}
       hovered={false}
       selectable={true}
+      selected={false}
       striped={false}
     >
       <TableRowColumn
