@@ -14,7 +14,7 @@ schema.statics.findAll = function findAll(cb) {
 };
 
 schema.methods.toEntity = function toEntity() {
-  return new UserEntity(this._id, this.firstName, this.lastName, this.age);
+  return new UserEntity(this._id.toString(), this.firstName, this.lastName, this.age);
 };
 
 const User = mongoose.model('User', schema);
