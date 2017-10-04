@@ -6,10 +6,10 @@ describe('Actions', () => {
   describe('Home', () => {
     it('Creates an action to show add user dialog', () => {
       const expected = {
-        type: types.START_ADDING,
+        type: types.SHOW_CREATE_DIALOG,
       };
 
-      expect(actions.startAdding()).toEqual(expected);
+      expect(actions.showCreateDialog()).toEqual(expected);
     });
 
     it('Creates an action to cancel user dialog', () => {
@@ -37,6 +37,14 @@ describe('Actions', () => {
       };
 
       expect(actions.clearSelection()).toEqual(expected);
+    });
+
+    it('Creates an action to show delete user dialog', () => {
+      const expected = {
+        type: types.SHOW_DELETE_DIALOG,
+      };
+
+      expect(actions.showDeleteDialog()).toEqual(expected);
     });
   });
 });

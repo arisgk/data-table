@@ -21,12 +21,8 @@ class UserDialog extends Component {
   }
 
   handleAdd() {
-    const { mutate, listQuery } = this.props;
-    mutate({
-      variables: this.state,
-      refetchQueries: [{ query: listQuery }],
-    });
-
+    const { mutate } = this.props;
+    mutate(this.state);
     this.handleClose();
   }
 
@@ -96,11 +92,13 @@ class UserDialog extends Component {
 
 UserDialog.propTypes = {
   adding: PropTypes.bool,
+  mutate: PropTypes.func,
   onCancel: PropTypes.func,
 };
 
 UserDialog.defaultProps = {
   adding: false,
+  mutate: () => {},
   onCancel: () => {},
 };
 

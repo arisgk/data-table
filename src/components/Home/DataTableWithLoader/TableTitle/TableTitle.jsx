@@ -27,13 +27,13 @@ const styles = {
   },
 };
 
-const TableTitle = ({ selection, onStartDeleting }) => (
+const TableTitle = ({ selection, onShowDeleteDialog }) => (
   <div style={styles.container}>
     <h2 style={styles.title}>Basketball Players</h2>
     <div style={styles.iconButtonsContainer}>
       <IconButton
         disabled={!(selection.selected && selection.selected.length > 0)}
-        onTouchTap={() => onStartDeleting(selection.selected)}
+        onClick={() => onShowDeleteDialog(selection.selected)}
         iconStyle={styles.icon}
       >
         <i
@@ -49,12 +49,12 @@ const TableTitle = ({ selection, onStartDeleting }) => (
 
 TableTitle.propTypes = {
   selection: schemas.selection,
-  onStartDeleting: PropTypes.func,
+  onShowDeleteDialog: PropTypes.func,
 };
 
 TableTitle.defaultProps = {
   selection: {},
-  onStartDeleting: () => {},
+  onShowDeleteDialog: () => {},
 };
 
 export default TableTitle;

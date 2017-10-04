@@ -1,7 +1,7 @@
 import * as types from './types';
 
-export const startAdding = () => ({
-  type: types.START_ADDING,
+export const showCreateDialog = () => ({
+  type: types.SHOW_CREATE_DIALOG,
 });
 
 export const cancelUserDialog = () => ({
@@ -15,4 +15,8 @@ export const select = ids => ({
 
 export const clearSelection = () => ({
   type: types.CLEAR_USER_SELECTION,
+});
+
+export const showDeleteDialog = () => ({
+  type: types.SHOW_DELETE_DIALOG,
 });

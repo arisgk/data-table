@@ -23,7 +23,7 @@ exports[`Home renders correctly 1`] = `
       }
     }
   >
-    <Apollo(Apollo(Connect(DataTableWithLoader))) />
+    <Apollo(Apollo(Apollo(Connect(DataTableWithLoader)))) />
   </div>
 </div>
 `;

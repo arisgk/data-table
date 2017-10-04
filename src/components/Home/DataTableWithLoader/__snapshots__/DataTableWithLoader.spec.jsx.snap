@@ -3,7 +3,7 @@
 exports[`DataTableWithLoader renders correctly 1`] = `
 <div>
   <TableTitle
-    onStartDeleting={[Function]}
+    onShowDeleteDialog={[Function]}
     selection={Object {}}
   />
   <DataTable
@@ -29,9 +29,15 @@ exports[`DataTableWithLoader renders correctly 1`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
-    listQuery={Object {}}
     mutate={[Function]}
     onCancel={[Function]}
+  />
+  <DeleteDialog
+    deleting={false}
+    deletingProgress={false}
+    mutate={[Function]}
+    onCancel={[Function]}
+    selected={Array []}
   />
 </div>
 `;
@@ -41,7 +47,7 @@ exports[`DataTableWithLoader renders correctly 2`] = `<Progress />`;
 exports[`DataTableWithLoader renders correctly 3`] = `
 <div>
   <TableTitle
-    onStartDeleting={[Function]}
+    onShowDeleteDialog={[Function]}
     selection={Object {}}
   />
   <DataTable
@@ -82,9 +88,15 @@ exports[`DataTableWithLoader renders correctly 3`] = `
   </FloatingActionButton>
   <UserDialog
     adding={false}
-    listQuery={Object {}}
     mutate={[Function]}
     onCancel={[Function]}
+  />
+  <DeleteDialog
+    deleting={false}
+    deletingProgress={false}
+    mutate={[Function]}
+    onCancel={[Function]}
+    selected={Array []}
   />
 </div>
 `;

@@ -6,6 +6,7 @@ import DataTable from './DataTable';
 import TableTitle from './TableTitle';
 import Progress from './Progress';
 import UserDialog from './UserDialog';
+import DeleteDialog from './DeleteDialog';
 import * as schemas from '../../../schemas/propTypes';
 
 const styles = {
@@ -18,13 +19,14 @@ const styles = {
 
 const DataTableWithLoader = ({
   adding,
-  onStartAdding,
-  onCancelUserDialog,
+  deleting,
+  onShowCreateDialog,
+  onShowDeleteDialog,
+  onCancel,
   data: { loading, users },
-  mutate,
-  listQuery,
+  add,
+  remove,
   selection,
-  onStartDeleting,
   onTableRowSelection,
 }) => {
   if (loading) {
@@ -37,17 +39,28 @@ const DataTableWithLoader = ({
     <div>
       <TableTitle
         selection={selection}
-        onStartDeleting={onStartDeleting}
+        onShowDeleteDialog={onShowDeleteDialog}
       />
       <DataTable
         users={users}
         selection={selection}
         onTableRowSelection={onTableRowSelection}
       />
-      <FloatingActionButton style={styles.fab} onClick={onStartAdding}>
+      <FloatingActionButton style={styles.fab} onClick={onShowCreateDialog}>
         <ContentAdd />
       </FloatingActionButton>
-      <UserDialog adding={adding} onCancel={onCancelUserDialog} mutate={mutate} listQuery={listQuery} />
+      <UserDialog
+        adding={adding}
+        onCancel={onCancel}
+        mutate={add}
+      />
+      <DeleteDialog
+        deleting={deleting}
+        deletingProgress={false}
+        selected={selection.selected}
+        mutate={remove}
+        onCancel={onCancel}
+      />
     </div>
   );
 };
@@ -58,13 +71,14 @@ DataTableWithLoader.propTypes = {
     error: PropTypes.object,
     users: PropTypes.array,
   }),
-  onStartAdding: PropTypes.func,
-  onCancelUserDialog: PropTypes.func,
-  mutate: PropTypes.func,
+  onShowCreateDialog: PropTypes.func,
+  onShowDeleteDialog: PropTypes.func,
+  onCancel: PropTypes.func,
+  add: PropTypes.func,
+  remove: PropTypes.func,
   adding: PropTypes.bool,
-  listQuery: PropTypes.object,
+  deleting: PropTypes.bool,
   selection: schemas.selection,
-  onStartDeleting: PropTypes.func,
   onTableRowSelection: PropTypes.func,
 };
 
@@ -74,13 +88,14 @@ DataTableWithLoader.defaultProps = {
     error: null,
     users: [],
   },
-  onStartAdding: () => {},
-  onCancelUserDialog: () => {},
-  mutate: () => {},
+  onShowCreateDialog: () => {},
+  onShowDeleteDialog: () => {},
+  onCancel: () => {},
+  add: () => {},
+  remove: () => {},
   adding: false,
-  listQuery: {},
+  deleting: false,
   selection: {},
-  onStartDeleting: () => {},
   onTableRowSelection: () => {},
 };
 

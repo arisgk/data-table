@@ -8,43 +8,92 @@ describe('Home', () => {
     it('Returns the initial state', () => {
       expect(reducer(undefined, {})).toEqual({
         adding: false,
+        deleting: false,
       });
     });
 
-    it('Handles adding transient state action', () => {
-      const state = {
-        adding: false,
-      };
+    describe('Transient states', () => {
+      it('Handles adding transient state action', () => {
+        const state = {
+          adding: false,
+          deleting: false,
+        };
 
-      deepFreeze(state);
+        deepFreeze(state);
 
-      const action = {
-        type: types.START_ADDING,
-      };
+        const action = {
+          type: types.SHOW_CREATE_DIALOG,
+        };
 
-      const expected = {
-        adding: true,
-      };
+        const expected = {
+          adding: true,
+          deleting: false,
+        };
 
-      expect(reducer(state, action)).toEqual(expected);
+        expect(reducer(state, action)).toEqual(expected);
+      });
+
+      it('Handles deleting transient state action', () => {
+        const state = {
+          adding: false,
+          deleting: false,
+        };
+
+        deepFreeze(state);
+
+        const action = {
+          type: types.SHOW_DELETE_DIALOG,
+        };
+
+        const expected = {
+          adding: false,
+          deleting: true,
+        };
+
+        expect(reducer(state, action)).toEqual(expected);
+      });
     });
 
-    it('Handles cancel user dialog action', () => {
-      const state = {
-        adding: true,
-      };
+    describe('Transient states cancellation', () => {
+      it('Cancels create user dialog', () => {
+        const state = {
+          adding: true,
+          deleting: false,
+        };
 
-      deepFreeze(state);
+        deepFreeze(state);
 
-      const action = {
-        type: types.CANCEL_USER_DIALOG,
-      };
+        const action = {
+          type: types.CANCEL_USER_DIALOG,
+        };
 
-      const expected = {
-        adding: false,
-      };
+        const expected = {
+          adding: false,
+          deleting: false,
+        };
 
-      expect(reducer(state, action)).toEqual(expected);
+        expect(reducer(state, action)).toEqual(expected);
+      });
+
+      it('Cancels delete user dialog', () => {
+        const state = {
+          adding: false,
+          deleting: true,
+        };
+
+        deepFreeze(state);
+
+        const action = {
+          type: types.CANCEL_USER_DIALOG,
+        };
+
+        const expected = {
+          adding: false,
+          deleting: false,
+        };
+
+        expect(reducer(state, action)).toEqual(expected);
+      });
     });
   });
 });
