@@ -7,5 +7,9 @@ module.exports = ({ userRepository }) => ({
       const user = await userRepository.insert({ firstName, lastName, age });
       return user;
     },
+    deleteUsers: async (root, { ids }) => {
+      const result = await userRepository.remove(ids);
+      return result;
+    },
   },
 });

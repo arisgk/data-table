@@ -15,6 +15,7 @@ function create(resolvers) {
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, age: Int): User
+    deleteUsers(ids: [ID]): [ID]
   }
   `;
 

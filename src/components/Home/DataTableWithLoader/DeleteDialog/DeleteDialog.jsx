@@ -16,7 +16,7 @@ const styles = {
 };
 
 const handleDelete = (mutate, selected) => {
-  mutate(selected);
+  mutate({ ids: selected });
 };
 
 const DeleteDialog = ({ deleting, deletingProgress, selected, mutate, onCancel }) => {

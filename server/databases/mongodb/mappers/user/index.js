@@ -13,6 +13,11 @@ schema.statics.findAll = function findAll(cb) {
   return this.find({}, cb);
 };
 
+schema.statics.removeMany = async function removeMany(ids) {
+  await this.remove({ _id: { $in: ids } }).exec();
+  return ids;
+};
+
 schema.methods.toEntity = function toEntity() {
   return new UserEntity(this._id.toString(), this.firstName, this.lastName, this.age);
 };

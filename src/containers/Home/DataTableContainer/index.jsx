@@ -44,9 +44,7 @@ const createOptions = {
 
 const deleteMutation = gql`
   mutation deleteUsers($ids: [ID]!) {
-    deleteUsers(ids: $ids) {
-      id
-    }
+    deleteUsers(ids: $ids)
   }
 `;
 

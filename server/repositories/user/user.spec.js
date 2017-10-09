@@ -68,4 +68,24 @@ describe('User Repository', () => {
       expect(result).toEqual(expected);
     });
   });
+
+  describe('Delete', () => {
+    const ids = [mongoose.Types.ObjectId(), mongoose.Types.ObjectId()];
+
+    beforeEach(() => {
+      sinon.stub(User, 'removeMany');
+    });
+
+    afterEach(() => {
+      User.removeMany.restore();
+    });
+
+    it('Uses the data store to delete users', async () => {
+      const expected = ids;
+      User.removeMany.resolves(ids);
+
+      const result = await repository.remove(ids);
+      expect(result).toEqual(expected);
+    });
+  });
 });

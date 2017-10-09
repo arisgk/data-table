@@ -9,9 +9,16 @@ function create(User) {
     return results.map(result => result.toEntity());
   }
 
+  async function remove(ids) {
+    const results = await User.removeMany(ids);
+    console.log(results);
+    return results;
+  }
+
   return {
     insert,
     readAll,
+    remove,
   };
 }
 

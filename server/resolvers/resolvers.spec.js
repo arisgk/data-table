@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const User = require('../entities/user');
 const resolversFactory = require('./resolvers');
 
-const repositories = { userRepository: { readAll() {}, insert() {} } };
+const repositories = { userRepository: { readAll() {}, insert() {}, remove() {} } };
 const resolvers = resolversFactory(repositories);
 
 describe('Resolvers', () => {
@@ -32,26 +32,48 @@ describe('Resolvers', () => {
   });
 
   describe('Mutations', () => {
-    beforeAll(() => {
-      sinon.stub(repositories.userRepository, 'insert');
+    describe('Create', () => {
+      beforeAll(() => {
+        sinon.stub(repositories.userRepository, 'insert');
+      });
+
+      afterAll(() => {
+        repositories.userRepository.insert.restore();
+      });
+
+      it('Creates a user', async () => {
+        const id = '2345bcde';
+        const firstName = 'Kevin';
+        const lastName = 'Durant';
+        const age = 28;
+
+        const expected = new User(id, firstName, lastName, age);
+
+        repositories.userRepository.insert.resolves(expected);
+
+        const result = await resolvers.Mutation.addUser({}, { firstName, lastName, age });
+        expect(result).toEqual(expected);
+      });
     });
 
-    afterAll(() => {
-      repositories.userRepository.insert.restore();
-    });
+    describe('Delete', () => {
+      beforeAll(() => {
+        sinon.stub(repositories.userRepository, 'remove');
+      });
 
-    it('Creates a user', async () => {
-      const id = '2345bcde';
-      const firstName = 'Kevin';
-      const lastName = 'Durant';
-      const age = 28;
+      afterAll(() => {
+        repositories.userRepository.remove.restore();
+      });
 
-      const expected = new User(id, firstName, lastName, age);
+      it('Deletes a user', async () => {
+        const ids = ['1234abcd', '2345bcde'];
+        const expected = ids;
 
-      repositories.userRepository.insert.resolves(expected);
+        repositories.userRepository.remove.resolves(ids);
 
-      const result = await resolvers.Mutation.addUser({}, { firstName, lastName, age });
-      expect(result).toEqual(expected);
+        const result = await resolvers.Mutation.deleteUsers({}, { ids });
+        expect(result).toEqual(expected);
+      });
     });
   });
 });
