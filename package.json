@@ -1,6 +1,9 @@
 {
   "name": "data-table",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.5.0"
+  },
   "private": true,
   "dependencies": {
     "apollo-server-express": "^1.1.2",
