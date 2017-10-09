@@ -15,9 +15,33 @@ class UserDialog extends Component {
       age: '',
     };
 
+    this.validate = this.validate.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      firstName: '',
+      lastName: '',
+      age: '',
+    });
+  }
+
+  onKeyUp(event) {
+    const { adding } = this.props;
+
+    if (event.which === 13 && this.validate()) {
+      if (adding) {
+        this.handleAdd();
+      }
+    }
+  }
+
+  validate() {
+    return (this.state.firstName && this.state.lastName && validator.isInt(this.state.age));
   }
 
   handleAdd() {
@@ -52,10 +76,7 @@ class UserDialog extends Component {
         label="Create"
         primary
         onClick={this.handleAdd}
-        disabled={!(this.state.firstName
-          && this.state.lastName
-          && validator.isInt(this.state.age))
-        }
+        disabled={!this.validate()}
       />,
     ];
 
@@ -72,18 +93,21 @@ class UserDialog extends Component {
           fullWidth
           value={this.state.firstName}
           onChange={event => this.handleTextFieldChange(event, 'firstName')}
+          onKeyUp={this.onKeyUp}
         />
         <TextField
           floatingLabelText="Last Name"
           fullWidth
           value={this.state.lastName}
           onChange={event => this.handleTextFieldChange(event, 'lastName')}
+          onKeyUp={this.onKeyUp}
         />
         <TextField
           floatingLabelText="Age"
           fullWidth
           value={this.state.age}
           onChange={event => this.handleTextFieldChange(event, 'age')}
+          onKeyUp={this.onKeyUp}
         />
       </Dialog>
     );

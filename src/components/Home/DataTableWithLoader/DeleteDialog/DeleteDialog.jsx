@@ -15,8 +15,9 @@ const styles = {
   },
 };
 
-const handleDelete = (mutate, selected) => {
+const handleDelete = (mutate, selected, close) => {
   mutate({ ids: selected });
+  close();
 };
 
 const DeleteDialog = ({ deleting, deletingProgress, selected, mutate, onCancel }) => {
@@ -29,7 +30,7 @@ const DeleteDialog = ({ deleting, deletingProgress, selected, mutate, onCancel }
     <FlatButton
       label="Delete"
       secondary
-      onClick={() => handleDelete(mutate, selected)}
+      onClick={() => handleDelete(mutate, selected, onCancel)}
     />,
   ];
 
