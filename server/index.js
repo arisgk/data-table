@@ -1,12 +1,11 @@
-require('dotenv').config();
-const logger = require('./libs/logger');
-const databases = require('./databases');
-const repositories = require('./repositories/')(databases);
-const resolvers = require('./resolvers')(repositories);
-const app = require('./http/app')(resolvers);
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const port = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.listen(port, () => {
-  logger.info(`Listening on *:${port}`);
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+app.listen(9000);
