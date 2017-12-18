@@ -1,0 +1,41 @@
+version: '2'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web-dev
+    container_name: web-dev-container
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "8080:3000"
+      - "35729:35729"
+    volumes:
+      - .:/src
+      - /src/node_modules
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web-test
+    container_name: web-test-container
+    environment:
+      - NODE_ENV=test
+    volumes:
+      - .:/src
+      - /src/node_modules
+    command: npm test
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web-prod
+    container_name: web-prod-container
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "8000:9000"
+    volumes:
+      - /src/node_modules
